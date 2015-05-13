@@ -10,7 +10,8 @@ namespace WebSpellCheck.Core
             using (var client = new HttpClient(new HttpClientHandler { AllowAutoRedirect = false }))
             {
                 var response = client.GetAsync(baseUri + word).Result;
-                return !response.IsSuccessStatusCode; // we get a 301 redirect for misspelled words
+                // if we get a 301 redirect to the misspelling location, the word is misspelled!
+                return (!response.IsSuccessStatusCode && response.Headers.Location.LocalPath == "/misspelling"); 
             }
         }
     }

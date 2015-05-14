@@ -22,15 +22,12 @@
                         <ul class="list-group" id="resultsList">
                             <li class="list-group-item list-group-item-info">Misspelled words:</li>
                         </ul>
-                        <button class="btn btn-primary" id="clearButton">Clear</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
     <script type="text/javascript">
-
-        $('clearButton').click(reset);
 
         $('#submitButton').click(function () {
             reset();
@@ -64,7 +61,6 @@
         }
 
         function reset() {
-            $('#label').text('Enter some text below and click the Check button to check for misspelled words.');
             $('#results ul').empty();
             $('#results ul').append('<li class="list-group-item list-group-item-info">Misspelled words:</li>');
             $('#results').hide();
